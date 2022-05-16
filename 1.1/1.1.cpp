@@ -1,0 +1,12 @@
+// 1.1.cpp: compatibilities with C
+#include "foo.h"
+#include <iostream>
+#include <functional>
+
+int main()
+{
+    [out = std::ref(std::cout << "Result from C code: " << add(1,2))](){
+        out.get() << ".\n";
+    }();
+    return 0;
+}
