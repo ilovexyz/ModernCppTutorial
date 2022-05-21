@@ -31,6 +31,8 @@ int main()
 {
     std::map<std::string, int> mapUsersAge{{"Alex", 45}, {"John", 25}};
     std::map mapcopy{mapUsersAge}; // C++17 feature: Template Argument Deduction for Class Templates
+    // or
+    auto mapcopy_1{mapUsersAge};
 
     if (auto [iter, wasAdded] = mapUsersAge.insert_or_assign("John", 26); !wasAdded) // C++17 feature: new insertion function for map, structured binding, init if statement
         std::cout << iter->first << " reassigned...\n";
@@ -42,5 +44,13 @@ int main()
     float y = 4.6;
     double z = 1.45678909897;
     printWithInfo(&x, &y, &z, 3.24);
+
+    // auto deduction
+    auto a = {1,3};
+    // auto b {1,3}; // wrong
+    auto c {1}; // correct
+    std::cout << typeid(a).name() << std::endl;
+    std::cout << typeid(c).name() << std::endl;
+
     return 0;
 }
