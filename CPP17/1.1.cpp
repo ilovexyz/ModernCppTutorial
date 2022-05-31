@@ -2,6 +2,8 @@
 #include <map>
 #include <iomanip>
 
+// C++17 feature quick start
+
 template <typename T>
 void linePrinter(const T &x)
 {
